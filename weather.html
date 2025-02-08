@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>Skiesby</title>
+      <link rel="stylesheet" href="assets/styles/weather.css">
+      <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      >
+    <script src="js/weather.js" defer></script>
+  </head>
+
+  <body>
+     <header class="header">
+     <input type="checkbox" id="nav-check">
+        <label for="nav-check" class="icons">
+          <i class="fas fa-bars" id="menu-icon"></i>
+          <i class="fas fa-times" id="close-icon"></i>
+        </label>
+      <nav class="navbar">
+        <a href="index.html" style="--i:0;">Home</a>
+        <a href="about.html" style="--i:1;">About</a>
+        <a href="contact.html" style="--i:2;">Contact</a>
+        <a href="weather.html" style="--i:3;">Weather</a>
+      </nav>
+    </header>
+
+  <main class="container">
+  <section class="left">
+    <h2 class="welcome-message">Welcome to Skiesby, where the weather comes alive!</h2>
+    <p class="message">Don't guess the weather.</p>
+    <div class="box">
+      <input type="checkbox" id="check">
+      <div class="search-box">
+        <input type="text" class="search-bar" placeholder="Enter city...">
+        <label for="check" class="icon">
+          <i class="fas fa-search"></i>
+        </label>
+      </div>
+    </div>
+    <button class="search-btn">Search</button>
+  </section>
+  
+  <section class="right">
+    <div class="card">
+    <div class="weather loading">
+      <h2 class="city">Weather in Yogyakarta</h2>
+      <h1 class="temp">51°C</h1>
+      <div class="flex">
+        <img src="" alt="icon" class="icon-img" />
+        <div class="description">Cloudy</div>
+      </div>
+      <div class="humidity">Humidity: 60%</div>
+      <div class="wind">Wind speed: 6.2 km/h</div>
+     </div>
+    </div>
+  </section>
+
+  <script>
+    // setTimeout(() => {document.querySelector(".welcome-message").style.borderRight = "none"; 
+    // }, 2000); 
+
+    // setTimeout(() => {document.querySelector(".message").style.borderRight = "3px solid white"; 
+    // }, 2500);
+  </script>
+</body>
+</html>

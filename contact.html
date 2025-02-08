@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>Skiesby</title>
+    <link rel="stylesheet" href="assets/styles/contact.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    >
+</head>
+  <body>
+    <header class="header">
+      <input type="checkbox" id="check">
+      <label for="check" class="icons">
+        <i class="fas fa-bars" id="menu-icon"></i>
+        <i class="fas fa-times" id="close-icon"></i>
+      </label>
+      <nav class="navbar">
+        <a href="index.html" style="--i:0;">Home</a>
+        <a href="about.html" style="--i:1;">About</a>
+        <a href="contact.html" style="--i:2;">Contact</a>
+        <a href="weather.html" style="--i:3;">Weather</a>
+      </nav>
+    </header>
+    <img src="assets/img/sky.jpg" alt="background" class="bg">
+    <div class="contact-container">
+    <div class="contact-left">
+      <h1>Get in Touch</h1>
+      <p>Got a question? A complaint? A declaration of love? Slide into our inbox—we may or may not reply (depending on how dramatic your message is).</p>
+      <p><br>We’re here 24/7! (Just kidding, we need sleep too.)</p>
+      <div class="social-media">
+        <ul>
+          <li><a href="https://youtube.com"><i class="fab fa-youtube"></i></a></li>
+          <li><a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a></li>
+          <li><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="https://facebook.com"><i class="fab fa-facebook"></i></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <form id="contactForm" class="contact">
+      <input type="hidden" name="access_key" value="dafb1272-4e21-4902-b680-fcb1a8dc1279">
+      <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
+      <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required>
+      <textarea name="message" placeholder="Your Message" class="contact-inputs" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+    </div>
+  </div>
+    <script>
+      document.getElementById("contactForm").addEventListener("submit", function(event) {
+          event.preventDefault(); 
+      
+          let formData = new FormData(this);
+      
+          fetch("https://api.web3forms.com/submit", {
+              method: "POST",
+              body: formData
+          })
+          .then(response => response.json())
+          .then(result => {
+              if (result.success) {
+                  window.location.href = "thanks.html"; 
+              } else {
+                  alert("Submission failed. Please try again.");
+              }
+          })
+          .catch(error => console.error("Error:", error));
+      });
+      </script>
+    
+  </body>
+
+</html>
