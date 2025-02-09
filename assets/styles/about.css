@@ -2,10 +2,9 @@
     box-sizing: border-box;
   }
   body{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: Verdana, Geneva, sans-serif;
     height:100vh;
     margin:0;
-  
     display:flex;
     flex-direction: column;
     background-color: #e1f0f7;
@@ -83,8 +82,6 @@
   padding:20px;
 }
 
-
-
 .flex {
   background-image: url('../img/cover.jpeg'); 
   background-size: cover;
@@ -156,13 +153,20 @@
 }
 
 .our-story p{
-  color:black
+  text-align: justify;
+  padding:15px;
+  line-height: 1.5;
 }
 
 .story {
   display: flex;
   align-items: center;
   padding:5px;
+}
+.story p{
+  text-align: justify;
+  margin-right:15px;
+  line-height: 2;
 }
 
 .left {

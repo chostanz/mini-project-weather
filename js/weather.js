@@ -6,12 +6,28 @@ let weather = {
          + "&units=metric&appid=" 
          + this.apiKey
         )
-        .then((response)=> response.json())
+        .then((response)=> {
+            if (!response.ok) {
+                throw new Error("Gosh! City not found");
+            }
+            return response.json();
+            })
         .then((data)=> {
+            if (!data.weather) {
+                throw new Error("Gosh! City not found");
+            }
             console.log(data);
-            this.displayWeather(data)});
+            this.displayWeather(data);
+        })
+        .catch((error) => {
+            this.displayError(error.message);
+        });
     },
     displayWeather: function(data){
+        if (!data.weather) {
+            this.displayError("Gosh! City not found");
+            return;
+        }
         document.querySelector(".weather").classList.add("loading");
         const{ name } = data;
         const{ icon, description} = data.weather[0];
@@ -36,6 +52,7 @@ let weather = {
         })
         .then((response) => response.json())
         .then((data) => {
+            if (data.photos.length > 0){
             const randomPhoto = data.photos[Math.floor(Math.random() * data.photos.length)];
             const imageUrl = randomPhoto.src.original;
             
@@ -43,7 +60,30 @@ let weather = {
             document.body.style.backgroundSize = "cover"; 
             document.body.style.backgroundPosition = "center";
             document.body.style.backgroundAttachment = "fixed";
-        });
+            }else{
+                document.body.style.background = "gray";
+                    document.body.style.backgroundImage = "none";
+                }
+            })
+            .catch(() => {
+                document.body.style.background = "gray";
+                document.body.style.backgroundImage = "none";
+            });
+    
+    },
+
+    displayError: function(message) {
+        console.log("ERROR TRIGGERED:", message); // Cek apakah ini terpanggil
+        document.querySelector(".city").innerText = message;
+        document.querySelector(".icon-img").setAttribute("src", "./assets/img/err-icon.png");
+        document.querySelector(".description").innerText = "";
+        document.querySelector(".temp").innerText = "";
+        document.querySelector(".humidity").innerText = "";
+        document.querySelector(".wind").innerText = "";
+
+        document.querySelector(".weather").classList.remove("loading");
+
+        document.body.style.backgroundImage = "url('./assets/img/vector-err.jpg')"; // Hapus gambar background kalau ada
     
     },
         
