@@ -246,17 +246,10 @@
     main {
         flex-flow: column nowrap;
       }
-      main aside {
-        align-self: center;
-      }
     }
   
   @media screen and (max-width: 768px) {
-      main aside {
-        align-self: stretch;
-      }
-
-      .content {
+    .content {
         margin-top: 30px;
         padding: 10px;
     }

@@ -8,13 +8,13 @@ let weather = {
         )
         .then((response)=> {
             if (!response.ok) {
-                throw new Error("Gosh! City not found");
+                throw new Error("Gosh! City not found!");
             }
             return response.json();
             })
         .then((data)=> {
             if (!data.weather) {
-                throw new Error("Gosh! City not found");
+                throw new Error("Gosh! City not found!");
             }
             console.log(data);
             this.displayWeather(data);
@@ -25,7 +25,7 @@ let weather = {
     },
     displayWeather: function(data){
         if (!data.weather) {
-            this.displayError("Gosh! City not found");
+            this.displayError("Gosh! City not found!");
             return;
         }
         document.querySelector(".weather").classList.add("loading");
@@ -73,7 +73,7 @@ let weather = {
     },
 
     displayError: function(message) {
-        console.log("ERROR TRIGGERED:", message); // Cek apakah ini terpanggil
+        console.log("ERROR TRIGGERED:", message); 
         document.querySelector(".city").innerText = message;
         document.querySelector(".icon-img").setAttribute("src", "./assets/img/err-icon.png");
         document.querySelector(".description").innerText = "";
@@ -83,7 +83,7 @@ let weather = {
 
         document.querySelector(".weather").classList.remove("loading");
 
-        document.body.style.backgroundImage = "url('./assets/img/vector-err.jpg')"; // Hapus gambar background kalau ada
+        document.body.style.backgroundImage = "url('./assets/img/vector-err.jpg')";
     
     },
         

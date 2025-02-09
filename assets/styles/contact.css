@@ -218,9 +218,6 @@ button {
       }
     }
   @media screen and (max-width: 768px) {
-    main aside {
-      align-self: stretch;
-    }
     .contact-container{
       flex-direction: column;
       width: 90%;

@@ -95,27 +95,6 @@ h1.temp{
   margin:0; 
   margin-bottom: 0.4em;
 }
-/* h2.welcome-message, .message {
-  
-  display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid white;
-} */
-/* 
-.welcome-message{
-  width: 0;
-  animation: typing1 2s steps(20, end) forwards, cursor-blink 0.6s infinite;
-  margin-bottom: -10px;
-}
-
-.message{
-  width:0;
-  border-right: 3px solid transparent; 
-  animation: typing2 2s steps(20, end) forwards, cursor-blink 0.6s infinite;
-  animation-delay: 2.5s;
-  animation-fill-mode: forwards;
-} */
 
 .description{
   text-transform: capitalize;
@@ -262,9 +241,6 @@ h1.temp{
   @media screen and (max-width: 1200px) {
     main {
         flex-flow: column nowrap;
-      }
-      main aside {
-        align-self: center;
       }
     }
   
